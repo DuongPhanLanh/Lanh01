@@ -1,0 +1,296 @@
+i.	Giải thuật và thiết kế dữ liệu
+Giaỉ thuật và các đặc trưng của giải thuật
+Giải thuật
+Định nghĩa: là dãy các câu lệnh chặt chẽ và rõ ràng xác định một trình tự các thao tác trên một số đối tượng nào đó, sao cho sau một số hữu hạn bước thực hiện ta đạt được kết quả mong muốn
+Mỗi thuật toán có một dữ liệu vào (Input) và một  dữ liệu ra (Output);
+Khi thực hiện thuật toán (thực hiện các bước đã mô tả), thuật toán cần cho ra các dữ liệu ra tương ứng với các dữ liệu vào.
+
+Lý thuyết giải thuật quan tâm đến những vấn đề sau :
+Giải được bằng giải thuật :
+Tối ưu hóa giải thuật :
+Triển khai giải thuật:
+Lớp bài toán nào giải được bằng giải thuật, lớp bài toán không giải được bằng giải thuật.
+Thay những giải thuật chưa tốt bằng những giải thuật tốt hơn.
+Xây dựng những ngôn ngữ thực hiện trên máy tính để mã hóa giải thuật.
+
+Đặc trưng của giả thuật
+
+Tính xác định: Các thao tác, các đối tượng, phương tiện trong giải thuật phải có ý nghĩa rõ ràng, không được gây nhầm lẫn.
+Tính dừng: Giải thuật  phải dừng và cho kết quả sau một số hữu hạn các bước
+Tính đúng đắn : Sau khi thực hiện các của giải thuật theo đúng qui trình đã chỉ ra, Giải thuật cho kết quả thỏa mãn đặc tả với mọi trường hợp của các đối tượng, phương tiện nhập.
+Tính phổ dụng: Thuật toán phải dễ sửa đổi để thích ứng với bất kỳ bài toán nào trong lớp các bài toán
+Tính khả thi: Thuật toán phải chuyển thành được chương trình, kích thước đủ nhỏ, giải thuật phải được máy tính thực hiện trong thời gian cho phép
+
+Diễn đạt giải thuật
+
+Lưu đồ khối :Dùng các hình vẽ ( có qui ước ) để diễn đạt giải thuật. Lưu đồ cho hình ảnh trực quan và tổng thể của giải thuật, cho nên thường được sử dụng.
+ Ngôn ngữ tự nhiên: Thuật toán có thể trình bày dưới dạng ngôn ngữ tự nhiên theo trình tự các bước thực hiện trong giải thuật.
+Ngôn ngữ lập trình; Dùng cấu trúc lệnh, dữ liệu của một ngôn ngữ lập trình nào đó để mô tả.
+Dạng mã giả: Không phụ thuộc vào 1 ngôn ngữ nào, khá gần với ngôn ngữ tự nhiên, dễ hiểu, dễ chuyển sang cài đài
+
+Các nút biểu diễn giải thuật bằng sơ đồ khối
+Nút thao tác: (Hình vuông)
+Nút điều khiển:trong đó ghi điều kiện cần kiểm tra trong quá trình tính toán. (Hình thoi)
+Nút khởi đầu ,kết thúc: (Hình cầu)
+Cung (mũi tên)
+Kiểu dữ liệu, cấu trúc dữ liệu
+Kiểu dữ liệu, kiểu dữ liệu trừu tượng
+Kiểu dữ liệu (Data type)
+Kiểu dữ liệu trừu tượng (ADT - abstract data type):
+Một kiểu dữ liệu trừu tượng là một mô hình toán học cùng với một tập hợp các phép toán (operation) được định nghĩa trên mô hình đó.
+
+Kiểu dữ liệu, Kiểu dữ liệu trừu tượng, Cấu trúc dữ liệu nghe có vẻ giống nhau
+Trong ngôn ngữ lập trình, kiểu dữ liệu của một biến là tập hợp các giá trị mà biến có thể nhận và tập hợp các phép toán trên các giá trị đó
+Ví dụ: Kiểu Boolean là một tập hợp có 2 giá trị TRUE, FALSE và các phép toán trên nó như OR, AND, NOT …. Kiểu Integer là tập hợp các số nguyên có giá trị từ -32768 đến 32767 cùng các phép toán cộng, trừ, nhân, chia, Div, Mod
+
+Cấu  trúc dữ liệu
+Cấu trúc dữ liệu (Data structure)
+Trong ngôn ngữ lập trình, có một số cấu trúc dữ liệu riêng của nó được gọi là CTDL tiền định.
+
+Là kiểu dữ liệu mà giá trị dữ liệu của nó là sự kết hợp của nhiều giá trị những kiểu dữ liệu khác nhau
+Cấu trúc dữ liệu tiền định
+Mảng
+Mẫu tin (struct)
+
+Cấu trúc lưu trữ
+Là các biểu diễn cấu trúc dữ liệu trên bộ nhớ (trong/ngoài) của máy tính
+Có nhiều cấu trúc lưu trữ khác nhau cho cùng một cấu trúc dữ liệu
+
+Bộ nhớ trong của máy tính là: Bộ nhớ trong được hiểu là các loại bộ nhớ nằm nội bộ bên trong thùng máy.  Còn có tên gọi khác là bộ nhớ chính (Main Memory)
+Bộ nhớ đệm nhanh (cache memory):
+Tốc độ truy xuất nhanh;
+Thường nằm trong CPUThường nằm trong CPU, một số cache cũ có thể nằm ngoài CPU: như các cache trên đế cắm kiểu slot 1, hoặc cache dạng thanh, có thể tháo rời giống như các thanh RAMngày nay;
+Bao gồm Cache L1 và Cache L2, Cache L3 (L3 chỉ có ở một số CPU) có tốc độ truy xuất gần bằng tốc độ truyền dữ liệu trong CPU;
+Bộ nhớ chính (Main Memory);
+Bộ nhớ RAM (Random Access Memory), hay Bộ nhớ truy cập ngẫu nhiên: Tốc độ truy cập nhanh, lưu trữ dữ liệu tạm thời, dữ liệu sẽ bị mất đi khi bị cắt nguồn điện;
+Bộ nhớ ROM (Read Only Memory), hay Bộ nhớ chỉ đọc), hay Bộ nhớ chỉ đọc: Lưu trữ các chương trình mà khi mất nguồn điện cung cấp sẽ không bị (xóa) mất. Ngày nay còn có công nghệ FlashROM), hay Bộ nhớ chỉ đọc: Lưu trữ các chương trình mà khi mất nguồn điện cung cấp sẽ không bị (xóa) mất. Ngày nay còn có công nghệ FlashROM tức bộ nhớ ROM), hay Bộ nhớ chỉ đọc: Lưu trữ các chương trình mà khi mất nguồn điện cung cấp sẽ không bị (xóa) mất. Ngày nay còn có công nghệ FlashROM tức bộ nhớ ROM không những chỉ đọc mà còn có thể ghi lại được, nhờ có công nghệ này BIOS được cải tiến thành FlashBIOS.
+Bộ nhớ ngoài của máy tính là: Bộ nhớ ngoài được hiểu là bộ nhớ máy tính gắn bên ngoài thùng máy, có thể dùng để mang đi lại được.Dùng để lưu trữ dữ liệu ở mức độ lớn
+Bao gồm:
+Bộ nhớ từ: đĩa cứng, Đĩa mềm,...
+Bộ nhớ quang: CDBộ nhớ quang: CD, DVD,...
+Bộ nhớ bán dẫn: flash disk, thẻ nhớ...
+Các loại bộ nhớ dựa trên công nghệ Flash ROM: Kết hợp với chuẩn giao tiếp máy tính USB (Universal Serial Bus) tạo ra các bộ nhớ máy tính di động thuận tiện và đa năng như: Các thiết bị giao tiếp USB lưu trữ dữ liệu, thiết bị giao tiếp USB chơi nhạc số, chơi video số; khóa bảo mật qua giao tiếp USB; thẻ nhớ... Dung lượng thiết bị lưu trữ Flash ROM đã lên tới 32GB (Samsung (Samsung,Intel công bố năm 2005), trong tương lai, có thể Flash ROM sẽ dần thay thế các ổ đĩa cứng, các loại đĩa CD, DVD...
+Cách phân biệt trong và ngoài như trên chỉ mang tính tương đối. Ví dụ các loại ổ cứng, ổ đĩa CD có thể gắn ngoài (qua giao tiếp USB, DATA)tốc độ truy cập nhanh. Ổ đĩa mềm có thể đặt vào máy, lấy ra khỏi máy dễ dàng. dung lượng nhỏ tốc độ quay chậm, tốc độ truy cập chậm. Đĩa CD và USB là những thiết bị nhớ có dung lượng tương đối cao đến hàng 100 MB và vài GB.
+
+Mối quan hệ giữa cấu trúc dữ liệu và giải thuật
+
+Đối tượng xử lý của giải thuật chính là dữ liệu
+Với một cấu trúc dữ liệu, sẽ có những giải thuật tương ứng.
+Khi cấu trúc dữ liệu thay đổi thường giải thuật cũng phải thay đổi theo.
+Giải thuật phản ánh các phép xử lý, chính dữ liệu chứa đựng các thông tin cần thiết để thực hiện giải thuật
+Để xác định được giải thuật phù hợp cần ta cần phải biết nó tác động đến loại dữ liệu nào
+Khi lựa chọn cấu trúc dữ liệu cũng cần phải hiểu rõ những thao tác nào tác động lên dữ liệu đó.
+Một cấu trúc dữ liệu tốt sẽ giúp giải thuật có thể phát huy tác dụng tốt hơn, vừa nhanh vừa tiết kiêm tài nguyên, giải thuật cũng đơn giản và dễ hiểu hơn
+
+ii.	Phân tích và thiết kế giải thuật
+Thiết kế giải thuật
+
+Chiến lược thiết kế
+Chia để trị: Khi cần giải quyết một bài toán, ta sẽ tiến hành chia bài toán đó thành các bài toán con nhỏ hơn. Tiếp tục chia cho đến khi các bài toán nhỏ này không thể chia thêm nữa, khi đó ta sẽ giải quyết các bài toán nhỏ nhất này và cuối cùng kết hợp giải pháp của tất cả các bài toán nhỏ để tìm ra giải pháp của bài toán ban đầu.
+ Quy hoạch động: Giống như giải thuật chia để trị. Nhưng không giống chia để trị, các bài toán con này không được giải một cách độc lập. Thay vào đó, kết quả của các bài toán con này được lưu lại và được sử dụng cho các bài toán con tương tự hoặc các bài toán con gối nhau.
+ Tham lam: Nếu bạn đã đọc truyện dân gian thì sẽ có câu chuyện như thế này: trên một mâm cỗ có nhiều món ăn, món nào ngon nhất ta sẽ ăn trước, ăn hết món đó ta sẽ chuyển sang món ngon thứ hai, và chuyển tiếp sang món thứ ba…Giải thuật tham lam (Greedy Algorithm) là giải thuật tối ưu hóa tổ hợp. Giải thuật tìm kiếm, lựa chọn giải pháp tối ưu địa phương ở mỗi bước với hi vọng tìm được giải pháp tối ưu toàn cục. Giải thuật tham lam lựa chọn giải pháp nào được cho là tốt nhất ở thời điểm hiện tại và sau đó giải bài toán con nảy sinh từ việc thực hiện lựa chọn đó.
+Quay lui:
+
+Module hoá và việc giải quyết bài toán chiến thuật chia để trị (divide-conquer):
+
+Chia bài toán lớn thành các bài toán nhỏ, rồi lại chia các bài toán con thành các bài toán con nhỏ hơn cho đến khi ta được các bài toán đã biết cách giải rồi -> Chiến thuật chia để trị.
+Là chiến lược thiết kế thuật toán được sử dụng rộng rãi nhất  
+Việc phân chia thành các bài toán con không phải là việc dễ dàng
+Đi từ tổng quát đến chi tiết (Top-Down Design) : giúp cho giải quyết bài toán được rõ ràng, tránh sa ngay vào các chi tiết phụ
+Từng bước: Đề cập tới những công việc chủ yếu, rồi sau đó đi dần vào giải quyết các phần cụ thể một cách chi tiết hơn
+
+Tinh chỉnh từng bước (stepwise refinement): là phương pháp thiết kế giải thuật gắn liền với lập trình.
+Biểu diễn ý tưởng bằng ngôn ngữ tự nhiên 
+Cụ thể từng phần, thay đổi bằng ngôn ngữ chương trình 
+Cuối cùng ta có chương trình 
+
+Phân tích giải thuật
+
+Khi một giải thuật được xây dựng, hàng loạt yêu cầu đặt ra
+Tính đúng đắn của giải thuật:  giải thuật có cho lời giải đúng hay không ?
+Lưu ý: Tính đúng đắn (bao hàm cả tính khả thi) là bắt buộc phải được khẳng định không chỉ bằng một số thử nghiệm đối chiếu mà phải chứng minh chặt chẽ bằng các công cụ toán học
+Tính đơn giản của giải thuật. Thường ta mong muốn có được một giải thuật đơn giản, dễ hiểu, dễ lập trình 
+Yêu cầu về không gian : giải thuật được xây dựng có phù hợp với bộ nhớ may tính hay không ?
+Yêu cầu về thời gian : Thời gian chạy của giải thuật có nhanh không ? 
+
+Có hai mục tiêu trái ngược
+Thuật toán dễ hiểu, cài đặt và gỡ lỗi (1).
+Thuật toán sử dụng hiệu quả tài nguyên máy tính, đặc biệt chạy càng nhanh càng tốt (2).
+
+Một bài toán có thể có nhiều giải thuật  
+Tiêu chuẩn nào để lựa chọn giải thuật phù hợp để cài đặt ?
+Khi chương trình chạy 1 lần hoặc một vài lần thì mục tiêu (1) được quan tâm
+Khi chương trình chạy nhiều lần: Mục tiêu (2) được ưu tiên xem xét
+
+Độ phức tạp không gian (Space complexity)
+Dung lượng bộ nhớ mà thuật toán đòi hỏi
+Độ phức tạp thời gian (Time complexity) ⇔ thời gian chạy (running time)
+Thời gian thực hiện thuật toán  ( Người ta chỉ quan tâm đến độ phức tạp thời gian )
+
+Một số lớp các giải thuật
+
+Phân tích thời gian thực hiện giải thuật
+Thời gian thực hiện giải thuật phụ thuộc vào các yếu tố sau:
+Dữ liệu vào
+Tốc độ thực hiện các phép toán của máy tính (phần cứng máy tính)
+
+Trình biên dịch
+
+Sử dụng các công cụ toán học để đánh giá thời gian chạy của giải thuật:
+Gọi n là kích thước của dữ liệu vào, thời gian thực hiện của giải thuật có thể biểu diễn là một như hàm của n: hàm T(n) 
+
+Cách đánh giá thực nghiệm này không thể so sánh được các giải thuật với nhau
+Đánh giá thực nghiệm: Viết chương trình rồi cho chạy trên máy tính
+Chúng ta phải đưa ra cách đánh giá thơi gian chạy không phụ thuộc vào ngôn ngữ, chương trình dịch, tốc độ máy
+
+Cách đánh giá thời gian chạy bằng công cụ toán học của một thuật toán, không phụ thuộc vào sự cài đặt của thuật toán, không phụ thuộc vào máy tính mà trên đó thuật toán được thực hiện, chương trình dịch. Cách đánh giá thời gian chạy độc lập với máy tính được gọi là Độ phức tạp tính toán của giải thuật : T(n) là số lượng các phép tính cơ bản khi thực hiện giải thuật
+Chúng ta sẽ chỉ quan tâm tới tốc độ tăng (rate of growth) của hàm T(n), tức là tốc độ tăng của thời gian chạy khi cỡ dữ liệu vào tăng
+
+Tiến trình phân tích thời gian thhực hiện giải thuật
+
+Bước 1: Phân tích kích thước dữ liệu vào
+Bước 2: Phân tích (toán học) tìm ra giá trị trung bình, và giá trị xấu nhất cho mỗi đại lượng cơ bản. 
+Thời gian chạy của giải thuật không chỉ phụ thuộc vào kích thước của dữ liệu vào mà còn phụ thuộc tính chất của dữ liệu vào
+
+Độ phức tạp của giải thuật
+
+Ví dụ 4:
+Giải thuật A, độ phức tạp thời gian Ta(n)
+Giải thuật B, độ phức tạp thời gian Tb(n)
+Khi n lớn, Ta(n) >> Tb(n). Có thể kết luận giải thuật A chậm hơn giải thuật B.
+
+KÝ pháp để đánh giá độ phức tạp tính toán của giải thuật
+
+Ký hiệu O (big-Oh): hàm f(n) và g(n), ta nói: 
+f(n) = Ο(g(n)), nếu tồn tại các hằng số dương c và no sao cho f(n) ≤ cg(n) khi n ≥ no. 
+Ký hiệu này dùng để chỉ chặn trên của một hàm
+Ý nghĩa: Tốc độ tăng của hàm f(n) không lớn hơn hàm g(n)
+Vd. 
+Hàm f(n) và g(n) là hai hàm không âm của đối số nguyên không âm n.
+f(n) = O(g(n)) có nghĩa là hàm f(n) bị chặn trên bởi hàm g(n) với một nhân tử hằng nào đó khi n đủ lớn 
++ Ví dụ. Giả sử f(n) = 5n3 + 2n2 + 13n + 6 , ta có:
+f(n) = 5n3 + 2n2 + 13n + 6 <=  5n3 + 2n3 + 13n3 + 6n3  = 26n3
+Bất đẳng thức trên đúng với mọi n >= 1, và ta có n0 = 1, c = 26. Do đó, ta có thể nói f(n) = O(n3). 
+Mỗi hàm sẽ có rất nhiều cận trên
+
+Định nghĩa Ω: 
+   	f(n) = Ω(g(n)), nếu tồn tại các hằng số dương c và no sao cho f(n) ≥ cg(n) khi n ≥ no 
+ f(n) = Ω(g(n)) ⇔ g(n) = Ο(f(n)) 
+Định nghĩa  Θ
+f(n) = Θ(g(n)), nếu tồn tại các hằng số  dương c1, c2 và n0 sao cho c1.g(n) ≤ f(n) ≤ c2. g(n) với mọi n> n0
+Ký hiệu Ω  được gọi là giới hạn dưới 
+f(n) = Θ(g(n)), nếu và chỉ nếu f(n) = O(g(n)) và f(n) = Ω(g(n)) - tức là Θ(f(n)) = O(f(n)) ∩ Ω (f(n)). 
+Ký hiệu Θ gọi là giới hạn chặt
+Ví dụ: 
+ 3n+3 = O(n) và là  Θ(n)
+3n+3 = O(n2) nhưng không là  Θ(n2)
+
+Ta nói độ phức tạp tính toán của giải thuật có cấp f(n) nếu thỏa : 
+T(n) = O(f(n)), và
+Nếu ∃ g(n), mà T(n) = O(g(n)) thì f(n) = O(g(n)).
+Có nghĩa f(n) là cận trên chặt của T(n)
+
+Một số quy tắc về ký hiệu O lớn
+Nếu f1(n)=O(g1(n)) và f2(n)=O(g2(n))
+f1(n)+f2(n)=O(g1(n)+g2(n))=max(O(g1(n),g2(n))
+f1(n)*f2(n)=O(g1(n)*g2(n))
+logkN=O(N) với mọi hằng số k
+Nếu f(n) là một đa thức bậc k, 
+thì f(n) là O(nk),
+f = O(f) 
+f = O(g) và g = O(h) thì f = O(h)
+ f = O(g) và h=O(r) thì fh = O(gr)
+f =O(g) và h=O(r) thì f+h = O(g+r)
+ f =O(g) thì af = O(g) với mọi a>0.
+ O(c)=O(1) , c là hằng số
+
+T1(n) và T2(n) là thời gian thực hiện của hai giai đoạn chương trình P1 và P2 mà T1(n) = O(f(n)); T2(n) = O(g(n))
+Qui tắc tổng: 
+Thời gian thực hiện đoạn P1 rồi P2 tiếp theo sẽ là  T1(n) + T2(n) = O(max(f(n),g(n))).
+Qui tắc nhân:
+Thời gian thực hiện P1 và P2 lồng nhau sẽ là : T1(n)T2(n) = O(f(n)*g(n))
+Các phép gán, đọc, viết, goto là các phép toán sơ cấp: 
+Thời gian thực hiện là: O(1)
+Lệnh lựa chọn: if-else có dạng
+if (<điều kiện>)
+	lệnh 1
+else
+	lệnh 2
+
+Lệnh lựa chọn: if-else
+Thời gian đánh giá điều kiện là T0(n), thời gian thực hiện lệnh 1 là T1(n), thời gian thực hiện lệnh 2 là T2(n). Thời gian thực hiện lệnh lựa chọn if-else sẽ là thời gian lớn nhất trong các thời gian T0(n) + T1(n) và T0(n) + T1(n).
+Trường hợp hay gặp là kiểm tra điều kiện chỉ cần O(1). Khi đó nếu T1(n) = O(f(n)), T2(n) = O(g(n)) , thì thời gian chạy của lệnh  if-else  là O(max (f(n), g(n))).
+
+Câu lệnh switch được đánh giá tương tự như lệnh if-else.
+Các lệnh lặp: for, while, do-while
+Cần đánh giá số tối đa các lần lặp, giả sử đó là L(n) 
+Tiếp theo đánh giá thời gian chạy của mỗi lần lặp là Ti(n), (i=1,2,..., L(n)) 
+Mỗi lần lặp, chi phí kiểm tra điều kiện lặp,là T0(n). 
+Chí phí lệnh lặp là: 
+
+ 
+
+Lưu ý: lệnh if-else có hai khả năng lựa chọn, còn lệnh switch có thể có nhiều hơn hai khả năng lựa chọn 
+Chú ý rằng thời gian thực hiện thân của một lệnh lặp ở các lần lặp khác nhau có thể khác nhau, giả sử thời gian thực hiện thân lệnh lặp ở lần thứ i (i=1,2,..., L(n)) là Ti(n) 
+Trường hợp hay gặp là: kiểm tra điều kiện lặp (thông thường là đánh giá một biểu thức) chỉ cần thời gian O(1), thời gian thực hiện các lần lặp là như nhau và giả sử ta đánh giá được là O(f(n)); khi đó, nếu đánh giá được số lần lặp là O(g(n)), thì thời gian chạy của lệnh  lặp là O(g(n)f(n)).
+
+Phân tích các hàm đệ quy
+Ví dụ: Hàm tính giai thừa
+	int    Fact(int  n)
+	{
+	   if (n <= 1)
+		   return  1;
+	   else     return   n * Fact(n-1);
+	}
+Với n <= 1, ta có T(1) = O(1).
+Với n > 1, ta có T(n) = 0(1) + T(n-1) 
+Với n<= 1, chương trình chỉ thực hiện so sánh và thực hiện 1 lệnh return 1
+Với n>1, chương trình phải gọi đệ quy fact(n-1), việc gọi đệ quy này tốn T(n-1), sau khi có kết quả của việc gọi đệ quy, chương trình phải nhân kết quả đó với n và return tích số (tốn O(1)), tức là T(n) = 0(1) + T(n-1)
+
+Ta có quan hệ đệ quy sau:
+T(1) = O(1)
+T(n) =  T(n-1) + O(1) với n > 1
+Thay các ký hiệu O(1) bởi các hằng số dương a và b tương ứng, ta có 
+T(1) = a
+T(n) = T(n-1) + b  với n > 1
+
+Sử dụng các phép thế T(n-1) = T(n-2) + b, T(n-2) = T(n-3) + b,..., ta có
+	T(n) 	= T(n-1) + b
+= T(n-2) + 2b
+	= T(n-3) + 3b
+          	...
+	= T(1) + (n-1)b
+	= a + (n-1)b
+Từ đó, ta suy ra T(n) = O(n).
+Khi T(n) là thời gian chạy của hàm đệ quy F
+Khi đó lời kiêu gọi của các lời gọi hàm ở trong hàm F sẽ là T(m) (với m < n)
+Trước hế, phải đánh gias thời gian chạy của hàm F trên dữ liệu nhỏ nhất n = 1 , giả sử T(1) = a điều kiện dừng
+Sau đó đánh giá thời gian chạy của các câu lệnh trong thân của hàm F
+Tìm ra quan hệ biểu diễn thời gian chạy của ham F thông qua lời gọi hàm
+Với a là một hằng số nào đó
+Tức là biểu diễn T(n) thông qua các T(m), với m < n.
+
+Sự phân lớp của giải thuật
+
+Độ phức tạp
+O(1)		độ phức tạp hằng số
+O(logn)	độ phức tạp logarit	
+O(n)		độ phức tạp tuyến tính
+O(nlogn)	độ phức tạp nlogn
+O(nb)		độ phức tạp đa thức
+O(bn)		độ phức tạp mũ
+O(n!)		độ phức tạp giai thừa
+
+Đánh giá độ phức tạp của ba trường hợp
+
+Độ phức tạp tính toán của giải thuật trong các trường hợp
+Xấu nhất
+Tốt nhất
+Trung bình
+
+Độ phức tạp của giải thuật không chỉ phụ thuộc vào kích thước của dữ liệu vào mà con phụ thuộc vào tính chất của dữ liệu
+
+Tốt nhất: phần tử đầu tiên là phần tử cần tìm, số lượng phép so sánh là 2 🠆 T(n) ~ O(2) = O(1)
+Xấu nhất: so sánh đến phần tử cuối cùng, số lượng phép so sánh là 2n 🠆 T(n) ~ O(n)
+Trung bình: so sánh đến phần tử thứ i, cần 2i phép so sánh, vậy trung bình cần
+(2+4+6+…+2n)/n=2(1+2+…+n)/n=n+1  T(n) ~ O(n) 
