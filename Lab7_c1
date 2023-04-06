@@ -1,0 +1,171 @@
+package BAI7;
+
+public class HangSX {
+	private String tenhangSX;
+	private String tenQuocGia;
+	public HangSX(String tenhangSX, String tenQuocGia) {
+		super();
+		this.tenhangSX = tenhangSX;
+		this.tenQuocGia = tenQuocGia;
+	}
+	public String getTenhangSX() {
+		return tenhangSX;
+	}
+	public void setTenhangSX(String tenhangSX) {
+		this.tenhangSX = tenhangSX;
+	}
+	public String getTenQuocGia() {
+		return tenQuocGia;
+	}
+	public void setTenQuocGia(String tenQuocGia) {
+		this.tenQuocGia = tenQuocGia;
+	}
+	@Override
+	public String toString() {
+		return "HangSX [tenhangSX=" + tenhangSX + ", tenQuocGia=" + tenQuocGia + "]";
+	}
+	
+}
+
+package BAI7;
+
+public abstract class PhuongTienDiChuyen {
+	protected String loaiPhuongTien;
+	protected HangSX hangSX;
+	public PhuongTienDiChuyen(String loaiPhuongTien, HangSX hangSX) {
+		super();
+		this.loaiPhuongTien = loaiPhuongTien;
+		this.hangSX = hangSX;
+	}
+	public String getLoaiPhuongTien() {
+		return loaiPhuongTien;
+	}
+	public void setLoaiPhuongTien(String loaiPhuongTien) {
+		this.loaiPhuongTien = loaiPhuongTien;
+	}
+	public HangSX getHangSX() {
+		return hangSX;
+	}
+	public void setHangSX(HangSX hangSX) {
+		this.hangSX = hangSX;
+	}
+	@Override
+	public String toString() {
+		return "PhuongTienDiChuyen [loaiPhuongTien=" + loaiPhuongTien + ", hangSX=" + hangSX + "]";
+	}
+	public String layTenHangSX() {
+		return this.hangSX.getTenhangSX();
+	}
+	public void batDau() {
+		// System.out.println("BAT DAU");
+	}
+	public void tangToc() {
+		// System.out.println("TANG TOC");
+	}
+	public void dungLai() {
+		// System.out.println("DUNG LAI");
+	}
+	
+   abstract double layVanToc();
+}
+
+package BAI7;
+
+public class MayBay extends PhuongTienDiChuyen {
+	private String loaiNhienLieu;
+
+	public MayBay(String loaiPhuongTien, HangSX hangSX, String loaiNhienLieu) {
+		super(loaiPhuongTien, hangSX);
+		this.loaiNhienLieu = loaiNhienLieu;
+	}
+
+	public String getLoaiNhienLieu() {
+		return loaiNhienLieu;
+	}
+
+	public void setLoaiNhienLieu(String loaiNhienLieu) {
+		this.loaiNhienLieu = loaiNhienLieu;
+	}
+
+	@Override
+	public String toString() {
+		return "MayBay [loaiNhienLieu=" + loaiNhienLieu + "]";
+	}
+	
+	public void catCanh() {
+		
+	}
+	public void haCanh() {
+		
+	}
+
+	@Override
+	double layVanToc() {
+		return 100;
+	}
+	
+}
+
+package BAI7;
+
+public class XeOto extends PhuongTienDiChuyen {
+	private String loaiNhienLieu;
+
+	public XeOto(String loaiPhuongTien, HangSX hangSX, String loaiNhienLieu) {
+		super(loaiPhuongTien, hangSX);
+		this.loaiNhienLieu = loaiNhienLieu;
+	}
+
+	public String getLoaiNhienLieu() {
+		return loaiNhienLieu;
+	}
+
+	public void setLoaiNhienLieu(String loaiNhienLieu) {
+		this.loaiNhienLieu = loaiNhienLieu;
+	}
+
+	@Override
+	public String toString() {
+		return "XeOto [loaiNhienLieu=" + loaiNhienLieu + "]";
+	}
+
+	@Override
+	double layVanToc() {
+		return 60;
+	}
+	
+	
+}
+
+
+package BAI7;
+
+public class xeDap extends PhuongTienDiChuyen {
+
+	public xeDap(String loaiPhuongTien, HangSX hangSX) {
+		super(loaiPhuongTien, hangSX);
+		
+	}
+
+	@Override
+	double layVanToc() {
+		return 20;
+	}
+	
+}
+
+
+package BAI7;
+
+
+public class TEXT {
+	public static void main(String[] args) {
+		
+		HangSX hsx = new HangSX("BINH DUONG", "Viet Nam");
+		MayBay mb = new MayBay("May bay 1", hsx, "Xang");
+		System.out.println(mb.layTenHangSX());
+		System.out.println(mb.layVanToc());
+	}
+}
+
+
