@@ -1,0 +1,91 @@
+package BAI7;
+
+public interface Moveable {
+	public void moveUp();
+	public void moveDown();
+	public void moveLeght();
+	public void moveRight();
+	
+}
+
+package BAI7;
+
+public class MoveableCrircle implements Moveable {
+	private int radius;
+	private Moveable center;
+	public MoveableCrircle(int radius, Moveable center) {
+		super();
+		this.radius = radius;
+		this.center = center;
+	}
+	@Override
+	public String toString() {
+		return "MoveableCrircle [radius=" + radius + ", center=" + center + "]";
+	}
+	@Override
+	public void moveUp() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void moveDown() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void moveLeght() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void moveRight() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+}
+
+
+package BAI7;
+
+public class MoveablePonit implements Moveable {
+	private int x;
+	private int y;
+	private int xSpend;
+	private int ySpend;
+	public MoveablePonit(int x, int y, int xSpend, int ySpend) {
+		super();
+		this.x = x;
+		this.y = y;
+		this.xSpend = xSpend;
+		this.ySpend = ySpend;
+	}
+	@Override
+	public String toString() {
+		return "MoveablePonit [x=" + x + ", y=" + y + ", xSpend=" + xSpend + ", ySpend=" + ySpend + "]";
+	}
+	@Override
+	public void moveUp() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void moveDown() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void moveLeght() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void moveRight() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
+}
