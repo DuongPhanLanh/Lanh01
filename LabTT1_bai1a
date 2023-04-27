@@ -1,0 +1,121 @@
+package LAB_1a;
+
+
+public class Vehiclle {
+	private String tenChuXe;
+	private String loaiXe;
+	private int dungTich;
+	private double triGia;
+	public Vehiclle(String tenChuXe, String loaiXe, int dungTich, double triGia) {
+		// super();
+		this.tenChuXe = tenChuXe;
+		this.loaiXe = loaiXe;
+		this.dungTich = dungTich;
+		this.triGia = triGia;
+	}
+	public String getTenChuXe() {
+		return tenChuXe;
+	}
+	public void setTenChuXe(String tenChuXe) {
+		this.tenChuXe = tenChuXe;
+	}
+	public String getLoaiXe() {
+		return loaiXe;
+	}
+	public void setLoaiXe(String loaiXe) {
+		this.loaiXe = loaiXe;
+	}
+	public int getDungTich() {
+		return dungTich;
+	}
+	public void setDungTich(int dungTich) {
+		this.dungTich = dungTich;
+	}
+	public double getTriGia() {
+		return triGia;
+	}
+	public void setTriGia(double triGia) {
+		this.triGia = triGia;
+	}
+	
+	public double Thue() {
+		if(this.dungTich < 100) {
+			return this.triGia* 0.01;
+		}else if(this.dungTich >=100 || this.dungTich <=200  ) {
+			return this.triGia * 0.03;
+		}
+		return this.triGia * 0.05;
+		
+	}
+	
+	
+}
+
+package LAB_1a;
+
+import java.util.ArrayList;
+
+public class LIST  {
+	private ArrayList<Vehiclle> list;
+	
+	public LIST() {
+		this.list = new ArrayList<Vehiclle>();
+	}
+	public LIST(ArrayList<Vehiclle> list) {
+		this.list = list;
+	}
+	
+	public void them(Vehiclle xe) {
+		this.list.add(xe);
+	}
+	public void xuat() {
+		for(Vehiclle xe : list) {
+			System.out.println(xe.getTenChuXe() +"		"+ xe.getLoaiXe() +"		"+ xe.getDungTich() +"		"+ xe.getTriGia() +"		"+ xe.Thue());
+			
+		}
+	}
+	
+}
+
+package LAB_1a;
+
+import java.util.Scanner;
+
+public class TEXT {
+	public static void main(String[] args) {
+		System.out.println("MENU");
+		try (Scanner sc = new Scanner(System.in)) {
+			LIST list = new LIST();
+			int luaChon = 0;
+			do {
+				System.out.println("Nhan 1 de nap cac gia tri");
+				System.out.println("Nhan 2 de xuat ket qua");
+				System.out.println("Nhan 3  de THOAT");
+				luaChon = sc.nextInt();
+				sc.nextLine();
+				
+				if(luaChon==1) {
+					System.out.println("Nhap ten chu xe");
+					String tenChuXe = sc.nextLine();
+					System.out.println("Nhap Loai xe ");
+					String loaiXe = sc.nextLine();
+					System.out.println("Nhap Dung Tich ");
+					int dungTich = sc.nextInt();
+					System.out.println("Nhap triGia");
+					double triGia = sc.nextDouble();
+					
+					Vehiclle xe = new Vehiclle(tenChuXe, loaiXe, dungTich, triGia);
+					list.them(xe);
+					
+				}else if(luaChon==2) {
+					System.out.println("Ten chu xe"+"	"+ "Loai xe"+"		"+ "Dung tich"+"	" + "Tri gia"+"		" + "Thue phai nop ");
+					System.out.println("-----------------------------------------------------------------------------------------------");
+					System.out.println("-----------------------------------------------------------------------------------------------");
+					list.xuat();
+				}else if(luaChon==3) {
+					break;
+				}
+			} while (luaChon !=0);
+		}
+	}
+}
