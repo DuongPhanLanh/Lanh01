@@ -1,0 +1,189 @@
+package LAB_TT2_bai1;
+
+
+public class Account {
+	private double soTien;
+	private long soTK;
+	private String tenTK, trangThai;
+	
+	public Account() {
+		super();
+		this.soTien = 50;
+		this.soTK = 9999999;
+		this.tenTK = " ";
+		this.trangThai = "Nhap Trang Thai";
+	}
+	
+	public Account(double soTien, long soTK, String tenTK, String trangThai) {
+		super();
+		this.soTien = soTien;
+		this.soTK = soTK;
+		this.tenTK = tenTK;
+		this.trangThai = trangThai;
+	}
+
+
+
+
+
+
+	public double getSoTien() {
+		return soTien;
+	}
+
+	public void setSoTien(double soTien) {
+		if(this.soTien>50) {
+			this.soTien = soTien;
+		}else {
+			System.out.println("Loi");
+		}
+		
+	}
+
+	public long getSoTK() {
+		return soTK;
+	}
+
+	public void setSoTK(long soTK) {
+		if(this.soTK >0  && this.soTK !=999999) {
+			this.soTK = soTK;
+		}else {
+			System.out.println("Loi");
+		}
+		
+	}
+
+	public String getTenTK() {
+		return tenTK;
+	}
+
+	public void setTenTK(String tenTK) {
+		this.tenTK = tenTK;
+	}
+
+	public String getTrangThai() {
+		return trangThai;
+	}
+
+	public void setTrangThai(String trangThai) {
+		this.trangThai = trangThai;
+	}
+	
+	
+}
+
+package LAB_TT2_bai1;
+
+import java.util.ArrayList;
+
+public class AccountList {
+	private ArrayList<Account> accList;
+	private int count;
+	
+	public AccountList() {
+		this.accList = new ArrayList<Account>(10);
+		this.count =0;
+	}
+	public AccountList(ArrayList<Account> accList, int count) {
+		int n=0;
+		if(n>0) {
+			this.accList = accList;
+			this.count = count;
+		}else {
+			this.accList = new ArrayList<Account>(10);
+			this.count=0;
+		}
+		
+	}
+	public ArrayList<Account> getAccList() {
+		return accList;
+	}
+	public void setAccList(ArrayList<Account> accList) {
+		this.accList = accList;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	
+	public void them(Account acc) {
+		this.accList.add(acc);
+	}
+	public void xuat() {
+		for(Account acc : accList) {
+			System.out.println("So tien ="+acc.getSoTien());
+			System.out.println("So tai khoan ="+acc.getSoTK());
+			System.out.println("Ten tai khoan :"+acc.getTenTK());
+			System.out.println("Trang thai :"+acc.getTrangThai());
+		}
+	}
+	
+	public void layRa() {
+		
+	}
+	
+	public int soLuong() {
+		return this.accList.size();
+	}
+	
+	public boolean xoaTK(Account acc) {
+		return this.accList.remove(acc);
+	}
+	
+}
+
+
+package LAB_TT2_bai1;
+
+import java.text.NumberFormat;
+import java.util.Locale;
+import java.util.Scanner;
+
+public class AccountText {
+	public static void main(String[] args) {
+		int soTienCo = 50;
+		Scanner sc = new Scanner(System.in);
+		Locale lc = new Locale("vi", "VN");
+		NumberFormat numf = NumberFormat.getInstance(lc);
+		
+		AccountList list = new AccountList();
+		int luaChon = 0;
+		do {
+			System.out.println("BANK");
+			System.out.println("-------------------------");
+			System.out.println("1. Them tai khoan"
+								+ "2. So tai khoan hien co"
+								+ "3. In thong tin tat ca TK"
+								+ "4. Nap tien vao TK"
+								+ "5. Rut tien "
+								+ "6. Chuyen tien"
+								+ "7. Ket thuc");
+			luaChon = sc.nextInt();
+			sc.nextLine();
+			
+			if(luaChon==1) {
+				System.out.println("Nhap SO TIEN");
+				double soTien  = sc.nextDouble();
+				System.out.println("Nhap SO TAI KHOAN");
+				long soTK = sc.nextLong();
+				System.out.println("Nhap TEN TAI KKHOAN");
+				String tenTK = sc.nextLine();
+				System.out.println("Nhap TRANG THAI");
+				String trangThai =  sc.nextLine();
+				
+				Account acc = new Account(soTien, soTK, tenTK, trangThai);
+				list.them(acc);
+			}else if(luaChon==2) {
+				list.xuat();
+			}else if(luaChon==3) {
+				System.out.println("Nhap SO TAI KHOAN MUON TIM");
+				
+				
+				}
+					
+			
+		} while (luaChon !=0);
+	}
+}
