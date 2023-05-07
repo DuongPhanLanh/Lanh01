@@ -1,0 +1,215 @@
+package LAB_TT2_bai2;
+
+
+public class CD {
+	private int maCD;
+	private String TuCD;
+	private int soBaiHat, giaThanh;
+	public CD(int maCD, String tuCD, int soBaiHat, int giaThanh) {
+		
+		this.maCD = 999999;
+		TuCD = "";
+		this.soBaiHat = soBaiHat;
+		this.giaThanh = giaThanh;
+	}
+	public int getMaCD() {
+		return maCD;
+	}
+	public void setMaCD(int maCD) {
+		this.maCD = maCD;
+	}
+	public String getTuCD() {
+		return TuCD;
+	}
+	public void setTuCD(String tuCD) {
+		TuCD = tuCD;
+	}
+	public int getSoBaiHat() {
+		return soBaiHat;
+	}
+	public void setSoBaiHat(int soBaiHat) {
+		this.soBaiHat = soBaiHat;
+	}
+	public int getGiaThanh() {
+		return giaThanh;
+	}
+	public void setGiaThanh(int giaThanh) {
+		this.giaThanh = giaThanh;
+	}
+	@Override
+	public String toString() {
+		return "TEXT [maCD=" + maCD + ", TuCD=" + TuCD + ", soBaiHat=" + soBaiHat + ", giaThanh=" + giaThanh + "]";
+	}
+	
+	
+	
+	
+	
+}
+
+
+package LAB_TT2_bai2;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+
+public class CD_LIST {
+	private ArrayList<CD> list;
+
+	public CD_LIST() {
+		this.list = new ArrayList<CD>();
+	}
+	public CD_LIST(ArrayList<CD> list) {
+		this.list = list;
+	}
+	public ArrayList<CD> getList() {
+		return list;
+	}
+	public void setList(ArrayList<CD> list) {
+		this.list = list;
+	}
+	
+	public void them(CD cd) {
+		this.list.add(cd);
+	}
+	public void xuat() {
+		for(CD cd: list) {
+			System.out.println(cd);
+		}
+	}
+	
+	public void TinhTong() {
+		double tong =0;
+		for (int i = 0; i < list.size(); i++) {
+			tong +=list.get(i).getGiaThanh();
+		}
+		System.out.println("Tong gia tien"+ tong);
+	}
+	
+	// SAP XEP THEO MA CD
+	
+	public void sapXepGiamDanTheoMA() {
+		Collections.sort(this.list, new Comparator<CD>() {
+
+			@Override
+			public int compare(CD sd1, CD sd2) {
+				if(sd1.getMaCD()<sd2.getMaCD()) {
+					return 1;
+				}else if(sd1.getMaCD()>sd2.getMaCD()) {
+					return -1;
+				}
+				return 0;
+			}
+		});
+	}
+	
+	public void sapXepTangDanTheoMA() {
+		Collections.sort(this.list, new Comparator<CD>() {
+
+			@Override
+			public int compare(CD sd1, CD sd2) {
+				if(sd1.getMaCD()>sd2.getMaCD()) {
+					return 1;
+				}else if(sd1.getMaCD()<sd2.getMaCD()) {
+					return -1;
+				}
+				return 0;
+			}
+		});
+	}
+	
+	// SAP XEP THEO SO BAI  HAT
+	
+	public void sapXepGiamDanTheoSOBAIHAT() {
+		Collections.sort(this.list, new Comparator<CD>() {
+
+			@Override
+			public int compare(CD sd1, CD sd2) {
+				if(sd1.getSoBaiHat()<sd2.getSoBaiHat()) {
+					return 1;
+				}else if(sd1.getSoBaiHat()>sd2.getSoBaiHat()) {
+					return -1;
+				}
+				return 0;
+			}
+		});
+	}
+	
+	public void sapXepTangDanTheoSOBAIHAT() {
+		Collections.sort(this.list, new Comparator<CD>() {
+
+			@Override
+			public int compare(CD sd1, CD sd2) {
+				if(sd1.getSoBaiHat()>sd2.getSoBaiHat()) {
+					return 1;
+				}else if(sd1.getSoBaiHat()<sd2.getSoBaiHat()) {
+					return -1;
+				}
+				return 0;
+			}
+		});
+	}
+	
+	// SAP XEP THEO GIA THANH
+	
+	public void sapXepGiamDanTheoGIA() {
+		Collections.sort(this.list, new Comparator<CD>() {
+
+			@Override
+			public int compare(CD sd1, CD sd2) {
+				if(sd1.getGiaThanh()<sd2.getGiaThanh()) {
+					return 1;
+				}else if(sd1.getGiaThanh()>sd2.getGiaThanh()) {
+					return -1;
+				}
+				return 0;
+			}
+		});
+	}
+	
+	public void sapXepTangDanTheoGIA() {
+		Collections.sort(this.list, new Comparator<CD>() {
+
+			@Override
+			public int compare(CD sd1, CD sd2) {
+				if(sd1.getGiaThanh()>sd2.getGiaThanh()) {
+					return 1;
+				}else if(sd1.getGiaThanh()<sd2.getGiaThanh()) {
+					return -1;
+				}
+				return 0;
+			}
+		});
+	}
+	
+}
+
+
+package LAB_TT2_bai2;
+
+
+public class TEXT {
+	public static void main(String[] args) {
+		System.out.println("MENU");
+		CD_LIST list = new CD_LIST();
+		CD c1 = new CD(021, "SIUUUU", 1, 2000);
+		CD c2 = new CD(001, "CUOC DOI NAY", 3, 20000);
+		CD c3 = new CD(011, "THE SU", 2, 1200);
+		
+		System.out.println(c1);
+		list.them(c1);
+		System.out.println(c2);
+		list.them(c2);
+		System.out.println(c3);
+		list.them(c3);
+		
+		System.out.println("giam dan theo ma");
+		list.sapXepGiamDanTheoMA();
+		System.out.println("tang dan theo ma");
+		list.sapXepTangDanTheoMA();
+		
+		
+	}
+}
