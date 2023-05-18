@@ -1,0 +1,140 @@
+package LAB_TT4_bai1;
+
+public class Product {
+	private String  productD, descprition;
+	private double price;
+	public Product(String productD, String descprition,  double price) {
+		super();
+		this.productD = productD;
+		this.descprition = descprition;
+		this.price = price;
+	}
+	public String getDescprition() {
+		return descprition;
+	}
+	public void setDescprition(String descprition) {
+		this.descprition = descprition;
+	}
+	public String getProductD() {
+		return productD;
+	}
+	public void setProductD(String productD) {
+		this.productD = productD;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	@Override
+	public String toString() {
+		return  productD + "||" + descprition + "||" + price ;
+	}
+	
+	
+}
+
+package LAB_TT4_bai1;
+
+public class OrderDetall {
+	private int quatity;
+	private Product product;
+	public OrderDetall(int quatity, Product product) {
+		super();
+		this.quatity = quatity;
+		this.product = product;
+	}
+	public int getQuatity() {
+		return quatity;
+	}
+	public void setQuatity(int quatity) {
+		this.quatity = quatity;
+	}
+	public Product getProduct() {
+		return product;
+	}
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	@Override
+	public String toString() {
+		return  product + "||" + quatity ;
+	}
+	
+	public double calcTotalPrice() {
+		return  this.quatity* this.product.getPrice();
+		
+	}
+	
+}
+
+package LAB_TT4_bai1;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+public class Order {
+	private int OrderD;
+	private LocalDate orderDate;
+	private ArrayList<OrderDetall> lineItem;
+	private static int count = 0;
+	
+	public Order(int orderD, LocalDate orderDate) {
+		super();
+		OrderD = orderD;
+		this.orderDate = orderDate;
+		
+		if (count >=1 && count <=20) {
+			count++;
+		}else {
+			count=-1;
+		}	
+	}
+	public Order() {
+		this.lineItem = new ArrayList<OrderDetall>();
+	}
+	
+	public int getOrderD() {
+		return OrderD;
+	}
+	public ArrayList<OrderDetall> getLineItem() {
+		return lineItem;
+	}
+	public LocalDate getOrderDate() {
+		return orderDate;
+	}
+	public void setOrderDate(LocalDate orderDate) {
+		this.orderDate = orderDate;
+	}
+	
+	public void addTotalPrice(Product p, int q) {
+		lineItem.add(new OrderDetall(q, p));
+	}
+	public void xuat() {
+		
+		for(OrderDetall dd0 : lineItem) {
+		
+			System.out.println(lineItem.indexOf(dd0)+1+"||"+dd0+"||"+dd0.calcTotalPrice()+"VND");
+			
+		}
+	}
+	
+	public double calcTotalChage() {
+		double tongThanhTien = 0;
+			for (OrderDetall dd : lineItem) {
+				tongThanhTien += dd.calcTotalPrice();
+//				System.out.println("Tong thanh tien la: "+tongThanhTien);
+				
+			}
+			return tongThanhTien; 
+		}
+	@Override
+	public String toString() {
+		return "Order [OrderD=" + OrderD + ", orderDate=" + orderDate + ", lineItem=" + lineItem + "]";
+	}
+		
+	
+	
+	
+}
