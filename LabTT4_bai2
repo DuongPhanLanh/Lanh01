@@ -1,0 +1,175 @@
+package LAB_TT4_bai3;
+
+public class SinhVien  {
+	private String  tenSV;
+	private int maSV;
+	private int namSinh;
+	public SinhVien(int maSV, String tenSV, int namSinh) {
+		super();
+		this.maSV = maSV;
+		this.tenSV = tenSV;
+		this.namSinh = namSinh;
+	}
+	public int getMaSV() {
+		return maSV;
+	}
+	public void setMaSV(int maSV) {
+		this.maSV = maSV;
+	}
+	public String getTenSV() {
+		return tenSV;
+	}
+	public void setTenSV(String tenSV) {
+		this.tenSV = tenSV;
+	}
+	public int getNamSinh() {
+		return namSinh;
+	}
+	public void setNamSinh(int namSinh) {
+		this.namSinh = namSinh;
+	}
+	@Override
+	public String toString() {
+		return "SinhVien [maSV=" + maSV + ", tenSV=" + tenSV + ", namSinh=" + namSinh + "]";
+	}
+	
+	
+	
+}
+
+
+package LAB_TT4_bai3;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+public class List {
+	private ArrayList<SinhVien> dsSV;
+	
+	public List() {
+		this.dsSV = new ArrayList<SinhVien>();
+	}
+
+	public ArrayList<SinhVien> getDsSV() {
+		return dsSV;
+	}
+
+	public void setDsSV(ArrayList<SinhVien> dsSV) {
+		this.dsSV = dsSV;
+	}
+	
+	public void them(SinhVien sv) {
+		dsSV.add(sv);
+	}
+	public void xuat() {
+		for(SinhVien sv : dsSV) {
+			System.out.println(sv);
+		}
+	}
+	
+	public void xoa(SinhVien sv) {
+		dsSV.remove(sv);
+	}
+	
+	public void timkiem() {
+		
+		
+	}
+	public void sapXepTangDan() {
+		Collections.sort(this.dsSV, new Comparator<SinhVien>() {
+
+			@Override
+			public int compare(SinhVien sv1, SinhVien sv2) {
+				if(sv1.getMaSV()>sv2.getMaSV()) {
+					return 1;
+				}else if(sv1.getMaSV()<sv2.getMaSV()) {
+					return -1;
+				}
+				return 0;
+				
+			}
+		});
+	}
+}
+
+
+package LAB_TT4_bai3;
+
+
+import java.util.Scanner;
+
+public class text {
+	public static void main(String[] args) {
+		System.out.println("MENU SINH VIEN");
+		List list = new List();
+		try (Scanner sc = new Scanner(System.in)) {
+			SinhVien sv1 = new SinhVien(10200, "TRAN ", 2000);
+			SinhVien sv2 = new SinhVien(10201, "AN ", 2001);
+			SinhVien sv3 = new SinhVien(10203, "DUONG ", 1999);
+			SinhVien sv4 = new SinhVien(10205, "NGOC ", 2003);
+			SinhVien sv5 = new SinhVien(10207, "THANG ", 2003);
+			
+			list.them(sv1);
+			list.them(sv2);
+			list.them(sv3);
+			list.them(sv4);
+			list.them(sv5);
+			
+			System.out.println("Xuat danh sach");
+			list.xuat();
+			
+			System.out.println("Sap xep tang dan");
+			list.sapXepTangDan();
+			list.xuat();
+			
+			System.out.println("Tim kiem theo maSV");
+			
+			int luaChon = 0;
+			do {
+				System.out.println("nhap 1 de tim gia tri ma vao ");
+				System.out.println("nhap 2 de tim sap xep tang dan theo gia tri ma  ");
+				System.out.println("nhap 3 de tim gia tri theo Ten");
+				luaChon=sc.nextInt();
+				sc.nextLine();
+				if(luaChon==1) {
+					int a = sc.nextInt() ;
+					
+					if(a==sv1.getMaSV()) {
+						System.out.println(sv1);
+					}else if(a==sv2.getMaSV()) {
+						System.out.println(sv2);
+					}else if(a==sv3.getMaSV()) {
+						System.out.println(sv3);
+					}else if(a==sv4.getMaSV()) {
+						System.out.println(sv4);
+					}else if(a==sv5.getMaSV()) {
+						System.out.println(sv5);
+					}
+				}else if(luaChon==2) {
+					list.sapXepTangDan();
+				}else if(luaChon==3) {
+					String b = sc.nextLine();
+					if(b==sv1.getTenSV()) {
+						System.out.println(sv1);
+					}else if(b==sv2.getTenSV()) {
+						System.out.println(sv2);
+					}else if(b==sv3.getTenSV()) {
+						System.out.println(sv3);
+					}else if(b==sv4.getTenSV()) {
+						System.out.println(sv4);
+					}else if(b==sv5.getTenSV()) {
+						System.out.println(sv5);
+					}
+				}
+			} while (luaChon!=0);
+			
+				
+				
+		}
+		
+		
+		
+		
+	}
+}
