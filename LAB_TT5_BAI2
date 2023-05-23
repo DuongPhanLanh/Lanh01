@@ -1,0 +1,339 @@
+package LAB_TT5_Bai2;
+
+import java.time.LocalDate;
+
+public class Khach_Hang {
+	private String maKH;
+	private String tenKH;
+	private LocalDate ngayRaHoaDon;
+	private double soLuong;
+	private double donGia;
+	public Khach_Hang(String maKH, String tenKH, LocalDate ngayRaHoaDon, double soLuong, double donGia) {
+		super();
+		this.maKH = maKH;
+		this.tenKH = tenKH;
+		this.ngayRaHoaDon = ngayRaHoaDon;
+		this.soLuong = soLuong;
+		this.donGia = donGia;
+	}
+	public String getMaKH() {
+		return maKH;
+	}
+	public void setMaKH(String maKH) {
+		this.maKH = maKH;
+	}
+	public String getTenKH() {
+		return tenKH;
+	}
+	public void setTenKH(String tenKH) {
+		this.tenKH = tenKH;
+	}
+	public LocalDate getNgayRaHoaDon() {
+		return ngayRaHoaDon;
+	}
+	public void setNgayRaHoaDon(LocalDate ngayRaHoaDon) {
+		this.ngayRaHoaDon = ngayRaHoaDon;
+	}
+	public double getSoLuong() {
+		return soLuong;
+	}
+	public void setSoLuong(double soLuong) {
+		this.soLuong = soLuong;
+	}
+	public double getDonGia() {
+		return donGia;
+	}
+	public void setDonGia(double donGia) {
+		this.donGia = donGia;
+	}
+	
+	
+}
+
+
+package LAB_TT5_Bai2;
+
+import java.time.LocalDate;
+
+public class VIET_NAM extends Khach_Hang {
+	private String doiTuongKH;
+	private double dinhMuc;
+	public VIET_NAM(String maKH, String tenKH, LocalDate ngayRaHoaDon, double soLuong, double donGia, String doiTuongKH,
+			double dinhMuc) {
+		super(maKH, tenKH, ngayRaHoaDon, soLuong, donGia);
+		this.doiTuongKH = doiTuongKH;
+		this.dinhMuc = dinhMuc;
+	}
+	public String getDoiTuongKH() {
+		return doiTuongKH;
+	}
+	public void setDoiTuongKH(String doiTuongKH) {
+		this.doiTuongKH = doiTuongKH;
+	}
+	public double getDinhMuc() {
+		return dinhMuc;
+	}
+	public void setDinhMuc(double dinhMuc) {
+		this.dinhMuc = dinhMuc;
+	}
+	
+	public double ThanhTienVN() {
+		if(this.getSoLuong() <= this.dinhMuc) {
+			return this.getSoLuong()*this.getDonGia();
+		}
+		return this.getSoLuong()*this.getDonGia()*this.dinhMuc+this.getSoLuong()
+		+ this.getDonGia()*2.5;
+	}
+}
+
+package LAB_TT5_Bai2;
+
+import java.time.LocalDate;
+
+public class nuoc_ngoai extends Khach_Hang {
+	private String quocTich;
+
+	public nuoc_ngoai(String maKH, String tenKH, LocalDate ngayRaHoaDon, double soLuong, double donGia,
+			String quocTich) {
+		super(maKH, tenKH, ngayRaHoaDon, soLuong, donGia);
+		this.quocTich = quocTich;
+	}
+
+	public String getQuocTich() {
+		return quocTich;
+	}
+
+	public void setQuocTich(String quocTich) {
+		this.quocTich = quocTich;
+	}
+
+	public double ThanhTien_nn() {
+		return this.getDonGia()*this.getSoLuong();
+	}
+
+	
+}
+
+
+package LAB_TT5_Bai2;
+
+import java.util.ArrayList;
+
+
+public class LIST {
+	private ArrayList<VIET_NAM> VN;
+	private ArrayList<nuoc_ngoai> nn;
+	
+	public LIST() {
+		this.VN = new ArrayList<VIET_NAM>();
+		this.nn = new ArrayList<nuoc_ngoai>();
+	}
+
+	public LIST(ArrayList<VIET_NAM> vN, ArrayList<nuoc_ngoai> nn) {
+		super();
+		VN = vN;
+		this.nn = nn;
+	}
+
+	public ArrayList<VIET_NAM> getVN() {
+		return VN;
+	}
+
+	public void setVN(ArrayList<VIET_NAM> vN) {
+		VN = vN;
+	}
+
+	public ArrayList<nuoc_ngoai> getNn() {
+		return nn;
+	}
+
+	public void setNn(ArrayList<nuoc_ngoai> nn) {
+		this.nn = nn;
+	}
+	
+	public void them(VIET_NAM Vn) {
+		this.VN.add(Vn);
+	}
+	public void them1(nuoc_ngoai nN) {
+		this.nn.add(nN);
+	}
+	
+	public void xuat() {
+		for(VIET_NAM kh : VN) {
+			System.out.println(kh.getMaKH());
+			System.out.println(kh.getTenKH());
+			System.out.println(kh.getNgayRaHoaDon());
+			System.out.println(kh.getSoLuong());
+			System.out.println(kh.getDonGia());
+			System.out.println(kh.getDinhMuc());
+		}
+	}
+	
+	public void xuat1() {
+		for(nuoc_ngoai kh : nn) {
+			System.out.println(kh.getMaKH());
+			System.out.println(kh.getTenKH());
+			System.out.println(kh.getNgayRaHoaDon());
+			System.out.println(kh.getSoLuong());
+			System.out.println(kh.getDonGia());
+			System.out.println(kh.getQuocTich());
+		}
+	}
+	
+	public double TongThanhTienVN() {
+		double tongThanhTien = 0;
+			for (VIET_NAM dd : VN) {
+				tongThanhTien += dd.ThanhTienVN();
+				System.out.println("Tong thanh tien la: "+tongThanhTien);
+				
+			}
+			return tongThanhTien; 
+		}
+	
+	public double TongThanhTien_nn() {
+		double tongThanhTien = 0;
+			for (nuoc_ngoai dd : nn) {
+				tongThanhTien += dd.ThanhTien_nn();
+				System.out.println("Tong thanh tien la: "+tongThanhTien);
+				
+			}
+			return tongThanhTien; 
+		}
+	public double TrungBinhThanhTienDat() {
+		int n =0;
+		double TrungBinh = 0;
+		for (int i = 0; i < n; i++) {
+			for (nuoc_ngoai dd : nn) {
+				TrungBinh = (dd.ThanhTien_nn())/n;
+				System.out.println("Trung Binh thanh tien la: "+TrungBinh);
+				
+				}	
+			}
+		return TrungBinh;
+		}
+}
+
+
+package LAB_TT5_Bai2;
+
+import java.time.LocalDate;
+import java.util.Scanner;
+
+
+
+public class TEXT {
+	public static void main(String[] args) {
+		System.out.println("MENU");
+		Scanner sc = new Scanner(System.in);
+		LIST list = new LIST();
+		int luaChon=0;
+		
+		do {
+			System.out.println("Nhap 1 de nhap loai KHACH HANG\n");
+			System.out.println("Nhap 2 de xuat ket qua\n");
+			System.out.println("Nhap 3 de tinh tong\n");
+			System.out.println("Nhap 4 de tinh trung binh tong Tien dien nuoc ngoai");
+			System.out.println("Nhap 5 de xuat giao dich cua thang 9 nam 2013\n");
+			luaChon = sc.nextInt();
+			sc.nextLine();
+			
+			
+			if(luaChon==1) {
+				int GD =0;
+				System.out.println("NHap 1 de nhap Khach hang VN\n");
+				System.out.println("Nhap 2 de nhap Khah hang nn\n");
+				GD = sc.nextInt();
+				sc.nextLine();
+				
+				switch (GD) {
+				case 1:
+					
+					System.out.println("Nhap maKH\n");
+					String maGD=sc.next();
+					System.out.println("Nhap tenKH ");
+					String ten = sc.nextLine();
+					
+					System.out.println("NHap  ngay \n");
+					 int ngay= sc.nextInt();
+					 System.out.println("Nhap thag \n");
+					 int thang = sc.nextInt();
+					 System.out.println("Nhap nam");
+					 int nam = sc.nextInt();
+					 LocalDate lc = LocalDate.of(nam, thang, ngay);
+					 
+					 System.out.println("Nhap don gia");
+					 double donGia = sc.nextInt();
+					 System.out.println("Nhap so luong");
+					 double soluong = sc.nextInt();
+					 
+					 System.out.println("Doi tuong khach hang");
+					 String doiTuong = sc.nextLine();
+					 System.out.println("Dinh muc");
+					 double dinhMuc = sc.nextDouble();
+					 
+					 VIET_NAM VN = new VIET_NAM(maGD, ten, lc, soluong, donGia, doiTuong, dinhMuc);
+					 list.them(VN);
+					
+					break;
+					
+					case 2:
+						System.out.println("Nhap maKH\n");
+						String maGD1=sc.next();
+						System.out.println("Nhap tenKH ");
+						String ten1 = sc.nextLine();
+						
+						System.out.println("NHap  ngay \n");
+						 int ngay1= sc.nextInt();
+						 System.out.println("Nhap thag \n");
+						 int thang1 = sc.nextInt();
+						 System.out.println("Nhap nam");
+						 int nam1 = sc.nextInt();
+						 LocalDate lc1= LocalDate.of(nam1, thang1, ngay1);
+						 
+						 System.out.println("Nhap don gia");
+						 double donGia1 = sc.nextInt();
+						 System.out.println("Nhap so luong");
+						 double soluong1 = sc.nextInt();
+						 
+						 System.out.println("Nhap quoc tich");
+						 String qt = sc.nextLine();
+						 
+						 nuoc_ngoai nn = new nuoc_ngoai(maGD1, ten1, lc1, soluong1, donGia1, qt);
+						 list.them1(nn);
+						
+					break;
+
+				default:
+					break;
+				}
+						
+				
+			}else if(luaChon==2) {
+				System.out.println("Voi VIET NAM\n");
+				list.xuat();
+				System.out.println("\n");
+				System.out.println("Voi nuoc ngoai\n");
+				list.xuat1();
+			}else if(luaChon==3) {
+				System.out.println("Voi VN");
+				list.TongThanhTienVN();
+				System.out.println("Voi nn");
+				list.TongThanhTien_nn();
+			}else if(luaChon==4) {
+				list.TrungBinhThanhTienDat();
+			}else if(luaChon==5) {
+				System.out.println("Nhap thag \n");
+				int thang = sc.nextInt();
+				 System.out.println("Nhap nam");
+				 int nam = sc.nextInt();
+				 
+				 int t = 9;
+				 int n = 2013;
+				 if(thang==t && nam==n) {
+					 list.xuat();
+					 list.xuat1();
+				 }
+			}
+		} while (luaChon!=0);
+	}
+}
