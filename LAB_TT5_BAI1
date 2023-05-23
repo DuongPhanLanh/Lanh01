@@ -1,0 +1,407 @@
+package LAB_TT5_Bai1;
+
+import java.time.LocalDate;
+
+public class Giao_dich {
+	private String maGD;
+	private LocalDate ngayGiaoDich;
+	private double donGia;
+	public Giao_dich(String maGD, LocalDate ngayGiaoDich, double donGia) {
+		super();
+		this.maGD = maGD;
+		this.ngayGiaoDich = ngayGiaoDich;
+		this.donGia = donGia;
+	}
+	public String getMaGD() {
+		return maGD;
+	}
+	public void setMaGD(String maGD) {
+		this.maGD = maGD;
+	}
+	public LocalDate getNgayGiaoDich() {
+		return ngayGiaoDich;
+	}
+	public void setNgayGiaoDich(LocalDate ngayGiaoDich) {
+		this.ngayGiaoDich = ngayGiaoDich;
+	}
+	public double getDonGia() {
+		return donGia;
+	}
+	public void setDonGia(double donGia) {
+		this.donGia = donGia;
+	}
+	
+	
+}
+
+package LAB_TT5_Bai1;
+
+import java.time.LocalDate;
+
+
+public class Giao_dich_dat extends Giao_dich   {
+	private String loaiDat_A_B_C;
+	private double dienTich;
+	
+	public Giao_dich_dat(String maGD, LocalDate ngayGiaoDich, double donGia, String loaiDat_A_B_C, double dienTich) {
+		super(maGD, ngayGiaoDich, donGia);
+		this.loaiDat_A_B_C = loaiDat_A_B_C;
+		this.dienTich = dienTich;
+	}
+	public String getLoaiDat_A_B_C() {
+		return loaiDat_A_B_C;
+	}
+	public void setLoaiDat_A_B_C(String loaiDat_A_B_C) {
+		this.loaiDat_A_B_C = loaiDat_A_B_C;
+	}
+	public double getDienTich() {
+		return dienTich;
+	}
+	public void setDienTich(double dienTich) {
+		this.dienTich = dienTich;
+	}
+	
+	public double loaiDat_B_C() {
+		return this.dienTich * this.getDonGia();
+	}
+	public double loaiDat_A() {
+		return this.dienTich*this.getDonGia()*1.5;
+	}
+	
+	
+}
+
+package LAB_TT5_Bai1;
+
+import java.time.LocalDate;
+
+public class Giao_dich_nha extends Giao_dich {
+	private String  loaiNha_Cao_Thap;
+	private double dienTich;
+	private String diaChi;
+	public Giao_dich_nha(String maGD, LocalDate ngayGiaoDich, double donGia, String loaiNha_Cao_Thap, double dienTich,
+			String diaChi) {
+		super(maGD, ngayGiaoDich, donGia);
+		this.loaiNha_Cao_Thap = loaiNha_Cao_Thap;
+		this.dienTich = dienTich;
+		this.diaChi = diaChi;
+	}
+	public String getLoaiNha_Cao_Thap() {
+		return loaiNha_Cao_Thap;
+	}
+	public void setLoaiNha_Cao_Thap(String loaiNha_Cao_Thap) {
+		this.loaiNha_Cao_Thap = loaiNha_Cao_Thap;
+	}
+	public double getDienTich() {
+		return dienTich;
+	}
+	public void setDienTich(double dienTich) {
+		this.dienTich = dienTich;
+	}
+	public String getDiaChi() {
+		return diaChi;
+	}
+	public void setDiaChi(String diaChi) {
+		this.diaChi = diaChi;
+	}
+	public double nhaCao() {
+		return this.dienTich*this.getDonGia();
+	}
+	public double nhaThap() {
+		return this.dienTich*this.getDonGia()*(90/100);
+	}
+	
+	
+	
+	
+	
+}
+
+
+package LAB_TT5_Bai1;
+
+import java.util.ArrayList;
+
+
+
+public class List {
+	private ArrayList<Giao_dich_dat> GDD;
+	private ArrayList<Giao_dich_nha> GDN;
+	
+	public List() {
+		this.GDD = new ArrayList<Giao_dich_dat>();
+		this.GDN = new ArrayList<Giao_dich_nha>();
+	}
+	
+	public List(ArrayList<Giao_dich_dat> gDD, ArrayList<Giao_dich_nha> gDN) {
+		GDD = gDD;
+		GDN = gDN;
+	}
+	
+	public ArrayList<Giao_dich_dat> getGDD() {
+		return GDD;
+	}
+
+	public void setGDD(ArrayList<Giao_dich_dat> gDD) {
+		GDD = gDD;
+	}
+
+	public ArrayList<Giao_dich_nha> getGDN() {
+		return GDN;
+	}
+
+	public void setGDN(ArrayList<Giao_dich_nha> gDN) {
+		GDN = gDN;
+	}
+
+	public void them(Giao_dich_dat gdd) {
+		this.GDD.add(gdd);
+	}
+	public void xuat() {
+		for(Giao_dich_dat gd : GDD) {
+			System.out.println(gd.getMaGD());
+			System.out.println(gd.getNgayGiaoDich());
+			System.out.println(gd.getDonGia());
+			System.out.println(gd.getLoaiDat_A_B_C());
+			System.out.println(gd.getDienTich());
+		}
+	
+	}
+	
+	public void them1(Giao_dich_nha gdn) {
+		this.GDN.add(gdn);
+	}
+	public void xuat1() {
+		for(Giao_dich_nha gd : GDN) {
+			System.out.println(gd.getMaGD());
+			System.out.println(gd.getNgayGiaoDich());
+			System.out.println(gd.getDonGia());
+			System.out.println(gd.getLoaiNha_Cao_Thap());
+			System.out.println(gd.getDienTich());
+			System.out.println(gd.getDiaChi());
+		}
+	
+	}
+	public void thanhTienGDD(String loai) {
+		for(Giao_dich_dat gd : GDD) {
+			if(loai.equals(gd.getLoaiDat_A_B_C())) {
+				System.out.println(gd.getLoaiDat_A_B_C());
+			}
+		}
+	}
+	
+	public void thanhTienGDN(String loai) {
+		for(Giao_dich_nha gd : GDN) {
+			if(loai.equals(gd.getLoaiNha_Cao_Thap())) {
+				System.out.println(gd.getLoaiNha_Cao_Thap());
+			}
+		}
+	}
+	
+	public double GDD_A() {
+		double tongThanhTien = 0;
+			for (Giao_dich_dat dd : GDD) {
+				tongThanhTien += dd.loaiDat_A();
+				System.out.println("Tong thanh tien la: "+tongThanhTien);
+				
+			}
+			return tongThanhTien; 
+		}
+	public double GDD_B_C() {
+		double tongThanhTien = 0;
+			for (Giao_dich_dat dd : GDD) {
+				tongThanhTien += dd.loaiDat_B_C();
+				System.out.println("Tong thanh tien la: "+tongThanhTien);
+				
+			}
+			return tongThanhTien; 
+		}
+	public double GDN_CAO() {
+		double tongThanhTien = 0;
+			for (Giao_dich_nha dd : GDN) {
+				tongThanhTien += dd.nhaCao();
+				System.out.println("Tong thanh tien la: "+tongThanhTien);
+				
+			}
+			return tongThanhTien; 
+		}
+	public double GDN_Thap() {
+		double tongThanhTien = 0;
+			for (Giao_dich_nha dd : GDN) {
+				tongThanhTien += dd.nhaThap();
+				System.out.println("Tong thanh tien la: "+tongThanhTien);
+				
+			}
+			return tongThanhTien; 
+		}
+	public double TrungBinhThanhTienDat() {
+		int n =0;
+		double TrungBinh = 0;
+		for (int i = 0; i < n; i++) {
+			for (Giao_dich_dat dd : GDD) {
+				TrungBinh = (dd.loaiDat_A()+dd.loaiDat_B_C())/n;
+				System.out.println("Trung Binh thanh tien la: "+TrungBinh);
+				
+				}	
+			}
+		return TrungBinh;
+		}
+		
+}
+
+package LAB_TT5_Bai1;
+
+import java.time.LocalDate;
+import java.util.Scanner;
+
+public class TEXT {
+	public static void main(String[] args) {
+		System.out.println("MENU");
+		Scanner sc = new Scanner(System.in);
+		List list = new List();
+		int luaChon=0;
+		
+		do {
+			System.out.println("Nhap 1 de nhap Giao dich\n");
+			System.out.println("Nhap 2 de xuat ket qua\n");
+			System.out.println("Nhap 3 de tinh tong\n");
+			System.out.println("Nhap 4 de tinh trung binh tong Giao Dich Dat");
+			System.out.println("Nhap 5 de xuat giao dich cua thang 9 nam 2013\n");
+			luaChon = sc.nextInt();
+			sc.nextLine();
+			
+			if(luaChon==1) {
+				int GD =0;
+				System.out.println("NHap 1 de nhap Giao_dich_dat\n");
+				System.out.println("Nhap 2 de nhap Giao_dich_nha\n");
+				GD = sc.nextInt();
+				sc.nextLine();
+				
+				switch (GD) {
+				case 1:
+					
+					System.out.println("Nhap maGD\n");
+					String maGD=sc.next();
+					System.out.println("NHap  ngay \n");
+					 int ngay= sc.nextInt();
+					 System.out.println("Nhap thag \n");
+					 int thang = sc.nextInt();
+					 System.out.println("Nhap nam");
+					 int nam = sc.nextInt();
+					 LocalDate lc = LocalDate.of(nam, thang, ngay);
+					 System.out.println("Nha[ don gia");
+					 double donGia = sc.nextInt();
+					 
+					 System.out.println("Nhap loai Dat ");
+					 String dat = sc.next();
+					 System.out.println("NHap dien tich");
+					 double dienTich = sc.nextDouble();
+					
+					 Giao_dich_dat gdd = new Giao_dich_dat(maGD, lc, donGia, dat, dienTich);
+					 list.them(gdd);
+					 
+					 
+					break;
+					
+					case 2:
+					
+						System.out.println("Nhap maGD\n");
+						String maGD1=sc.next();
+						System.out.println("NHap  ngay \n");
+						int ngay1= sc.nextInt();
+						System.out.println("Nhap thag \n");
+						int thang1 = sc.nextInt();
+						 System.out.println("Nhap nam");
+						 int nam1 = sc.nextInt();
+						 LocalDate lc1 = LocalDate.of(nam1, thang1, ngay1);
+						 System.out.println("Nha[ don gia");
+						 double donGia1 = sc.nextInt();
+						 
+						 System.out.println("Nhap loai Nha ");
+						 String nha = sc.next();
+						 System.out.println("NHap dien tich");
+						 double dienTich1 = sc.nextDouble();
+						 System.out.println("Nhap dia Chi");
+						 String diaChi = sc.nextLine();
+						 
+						 Giao_dich_nha gdn = new Giao_dich_nha(maGD1, lc1, donGia1, nha, dienTich1, diaChi);
+						 list.them1(gdn);
+						
+					break;
+
+				default:
+					break;
+				}
+						
+				
+			}else if(luaChon==2) {
+				System.out.println("Voi GIAO DICH DAT\n");
+				list.xuat();
+				System.out.println("\n");
+				System.out.println("Voi GIAO DICH NHA\n");
+				list.xuat1();
+			}else if(luaChon==3) {
+				int GD =0;
+				System.out.println("NHap 1 de nhap Giao_dich_dat\n");
+				System.out.println("Nhap 2 de nhap Giao_dich_nha\n");
+				GD = sc.nextInt();
+				sc.nextLine();
+				switch (GD) {
+				case 1:
+					System.out.print("Nhap loai dat can tim kiem: ");
+			        sc.nextLine();
+			        String name = sc.next();
+			        System.out.println("Co cac loai dat " + name + " trong GDD");
+			        list.thanhTienGDD(name);
+			        System.out.println("\nTinh tong");
+			        String A = "A";
+			        String B ="B";
+			        String C= "C";
+			        if(name==A) {
+			        	list.GDD_A();
+			        }else if(name==B || name ==C) {
+			        	list.GDD_B_C();
+			        }
+			       
+					break;
+					
+				case 2:
+					System.out.print("Nhap loai dat can tim kiem: ");
+			        sc.nextLine();
+			        String name1 = sc.next();
+			        System.out.println("Co cac loai nha " + name1 + " trong GDN");
+			        list.thanhTienGDN(name1);;
+			        System.out.println("\nTinh tong");
+			        String CAO = "CAO";
+			        String THAP ="THAP";
+			        if(name1==CAO) {
+			        	list.GDN_CAO();
+			        }else if(name1==THAP) {
+			        	list.GDN_Thap();
+			        }
+			       
+					break;
+
+				default:
+					break;
+				}
+			}else if(luaChon==4) {
+				list.TrungBinhThanhTienDat();
+			}else if(luaChon==5) {
+					
+					System.out.println("Nhap thag \n");
+					int thang = sc.nextInt();
+					 System.out.println("Nhap nam");
+					 int nam = sc.nextInt();
+					 
+					 int t = 9;
+					 int n = 2013;
+					 if(thang==t && nam==n) {
+						 list.xuat();
+						 list.xuat1();
+					 }
+			}
+			
+		} while (luaChon!=0);
+	}
+}
