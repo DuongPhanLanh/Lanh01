@@ -1,0 +1,123 @@
+package LAB_TT5_Bai3;
+
+import java.time.LocalDate;
+
+public class DiemHocVien {
+	private String hoTen;
+	private LocalDate ngaySinh;
+	private double diem5MonHoc;
+	public DiemHocVien(String hoTen, LocalDate ngaySinh, double diem5MonHoc) {
+		super();
+		this.hoTen = hoTen;
+		this.ngaySinh = ngaySinh;
+		this.diem5MonHoc = diem5MonHoc;
+	}
+	public String getHoTen() {
+		return hoTen;
+	}
+	public void setHoTen(String hoTen) {
+		this.hoTen = hoTen;
+	}
+	public LocalDate getNgaySinh() {
+		return ngaySinh;
+	}
+	public void setNgaySinh(LocalDate ngaySinh) {
+		this.ngaySinh = ngaySinh;
+	}
+	public double getDiem5MonHoc() {
+		return diem5MonHoc;
+	}
+	public void setDiem5MonHoc(double diem5MonHoc) {
+		this.diem5MonHoc = diem5MonHoc;
+	}
+	public void Xet() {
+		if(this.diem5MonHoc>7) {
+			System.out.println("Nguoi lam tieu luan");
+		}else if(this.diem5MonHoc<=7 && this.diem5MonHoc>=5) {
+			System.out.println("Tot nghiep");
+		}else if(this.diem5MonHoc<5) {
+			System.out.println("Thi lai");
+		}else {
+			System.out.println("Nhap lai!!!");
+		}
+	}
+	
+}
+
+package LAB_TT5_Bai3;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class List_TEXT {
+	private ArrayList<DiemHocVien> diem;
+	
+	public List_TEXT() {
+		this.diem = new ArrayList<DiemHocVien>();
+	}
+
+	public ArrayList<DiemHocVien> getDiem() {
+		return diem;
+	}
+
+	public void setDiem(ArrayList<DiemHocVien> diem) {
+		this.diem = diem;
+	}
+	
+	public void them(DiemHocVien dhv) {
+		this.diem.add(dhv);
+	}
+	public void xet() {
+		for(DiemHocVien dhv: diem) {
+			dhv.Xet();
+		}
+	}
+	public void xuat() {
+		for(DiemHocVien dhv: diem) {
+			System.out.println("Ho ten"+dhv.getHoTen());
+			System.out.println("Ngay sinh"+dhv.getNgaySinh());
+			System.out.println("Diem 5 mon hoc"+dhv.getDiem5MonHoc());
+			
+		}
+	}
+	public static void main(String[] args) {
+		System.out.println("MENU");
+		Scanner sc = new Scanner(System.in);
+		List_TEXT list = new List_TEXT();
+		int luaChon=0;
+		
+		do {
+			System.out.println("Nhap 1 de nhap ten cac SV");
+			System.out.println("Nhap 2 de xuat ");
+			System.out.println("Nhap 3 de tim loai SV");
+			luaChon=sc.nextInt();
+			sc.nextLine();
+			
+			if(luaChon==1) {
+				System.out.println("Nhap ten sv");
+				String hoten = sc.nextLine();
+				System.out.println("Nhap ngay sinh");
+				System.out.println("Nhap ngay");
+				int ngay = sc.nextInt();
+				System.out.println("Nhap thang");
+				int thang = sc.nextInt();
+				System.out.println("Nhap nam");
+				int nam = sc.nextInt();
+				
+				LocalDate lc = LocalDate.of(nam, thang, ngay);
+				System.out.println("Diem 5 mon hoc");
+				double diem = sc.nextDouble();
+				
+				DiemHocVien dhv = new DiemHocVien(hoten, lc, diem);
+				list.them(dhv);
+
+			}else if(luaChon==2) {
+				list.xuat();
+			}else if(luaChon==3) {
+				list.xet();
+			}
+		} while (luaChon!=0);
+		
+	}
+}
