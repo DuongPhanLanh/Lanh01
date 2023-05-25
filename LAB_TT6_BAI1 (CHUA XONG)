@@ -1,0 +1,383 @@
+package LAB_TT6_BAI1;
+
+public class Phong {
+	protected String maPhong;
+	protected double dayNha;
+	protected double dienTich;
+	protected int soBongDen;
+	public Phong(String maPhong, double dayNha, double dienTich, int soBongDen) {
+		super();
+		this.maPhong = maPhong;
+		this.dayNha = dayNha;
+		this.dienTich = dienTich;
+		this.soBongDen = soBongDen;
+	}
+	public String getMaPhong() {
+		return maPhong;
+	}
+	public void setMaPhong(String maPhong) {
+		this.maPhong = maPhong;
+	}
+	public double getDayNha() {
+		return dayNha;
+	}
+	public void setDayNha(double dayNha) {
+		this.dayNha = dayNha;
+	}
+	public double getDienTich() {
+		return dienTich;
+	}
+	public void setDienTich(double dienTich) {
+		this.dienTich = dienTich;
+	}
+	public int getSoBongDen() {
+		return soBongDen;
+	}
+	public void setSoBongDen(int soBongDen) {
+		this.soBongDen = soBongDen;
+	}
+	@Override
+	public String toString() {
+		return "Phong [maPhong=" + maPhong + 
+				", dayNha=" + dayNha + 
+				", dienTich=" + dienTich + 
+				", soBongDen="
+				+ soBongDen + "]";
+	}
+	
+	
+}
+
+
+package LAB_TT6_BAI1;
+
+public class PhongMayTinh extends Phong {
+	private int soMayTinh;
+
+	public PhongMayTinh(String maPhong, double dayNha, double dienTich, int soBongDen, int soMayTinh) {
+		super(maPhong, dayNha, dienTich, soBongDen);
+		this.soMayTinh = soMayTinh;
+	}
+
+	public int getSoMayTinh() {
+		return soMayTinh;
+	}
+
+	public void setSoMayTinh(int soMayTinh) {
+		this.soMayTinh = soMayTinh;
+	}
+
+	@Override
+	public String toString() {
+		return "PhongMayTinh [soMayTinh=" + soMayTinh + 
+				",maPhong=" + maPhong + 
+				", dayNha=" + dayNha + 
+				", dienTich=" + dienTich + 
+				", soBongDen="
+				+ soBongDen +"]";
+	}
+	
+	
+}
+
+
+package LAB_TT6_BAI1;
+
+public class PhongLyThuyet extends Phong {
+	private  String mayChieu;
+
+	public PhongLyThuyet(String maPhong, double dayNha, double dienTich, int soBongDen, String mayChieu) {
+		super(maPhong, dayNha, dienTich, soBongDen);
+		this.mayChieu = mayChieu;
+	}
+
+	public String isMayChieu() {
+		return mayChieu;
+	}
+
+	public void setMayChieu(String mayChieu) {
+		this.mayChieu = mayChieu;
+	}
+
+	@Override
+	public String toString() {
+		return "PhongLyThuyet [mayChieu=" + mayChieu + 
+				",maPhong=" + maPhong + 
+				", dayNha=" + dayNha + 
+				", dienTich=" + dienTich + 
+				", soBongDen="
+				+ soBongDen +"]";
+	}
+	
+}
+
+
+package LAB_TT6_BAI1;
+
+public class PhongThiNghiem extends Phong {
+	private String thongTin;
+	private double sucChua;
+	private String bonnRua;
+	public PhongThiNghiem(String maPhong, double dayNha, double dienTich, int soBongDen, String thongTin,
+			double sucChua, String bonnRua) {
+		super(maPhong, dayNha, dienTich, soBongDen);
+		this.thongTin = thongTin;
+		this.sucChua = sucChua;
+		this.bonnRua = bonnRua;
+	}
+	public String getThongTin() {
+		return thongTin;
+	}
+	public void setThongTin(String thongTin) {
+		this.thongTin = thongTin;
+	}
+	public double getSucChua() {
+		return sucChua;
+	}
+	public void setSucChua(double sucChua) {
+		this.sucChua = sucChua;
+	}
+	public String isBonnRua() {
+		return bonnRua;
+	}
+	public void setBonnRua(String bonnRua) {
+		this.bonnRua = bonnRua;
+	}
+	@Override
+	public String toString() {
+		return "PhongThiNghiem [thongTin=" + thongTin + 
+				", sucChua=" + sucChua + 
+				", bonnRua=" + bonnRua + 
+				",maPhong=" + maPhong + 
+				", dayNha=" + dayNha + 
+				", dienTich=" + dienTich + 
+				", soBongDen="
+				+ soBongDen +"]";
+	}
+	
+	
+	
+}
+
+
+package LAB_TT6_BAI1;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+
+
+public class NguoiQuanLy_List {
+	private List<Phong> phong;
+	private ArrayList<PhongMayTinh> mt;
+	
+	public NguoiQuanLy_List() {
+		this.phong = new ArrayList<>();
+		this.mt = new ArrayList<PhongMayTinh>();
+	}
+	
+	
+
+	
+
+
+
+
+	public void them(Phong p) {
+		this.phong.add(p);
+	}
+	public void xuat() {
+		this.phong.forEach(phong ->System.out.println(phong.toString()));
+	}
+	public void TiemKiemPhongLyThuyet() {
+        this.phong.stream().filter(phong-> phong instanceof PhongLyThuyet).forEach(doc -> System.out.println(phong.toString()));
+    }
+	public void TiemKiemPhongMayTinh() {
+        this.phong.stream().filter(phong-> phong instanceof PhongMayTinh).forEach(doc -> System.out.println(phong.toString()));
+    }
+	public void TiemKiemPhongThiNghiem() {
+        this.phong.stream().filter(phong-> phong instanceof PhongThiNghiem).forEach(doc -> System.out.println(phong.toString()));
+    }
+	
+	
+	public boolean xoa(String maphong) {
+        Phong doc = this.phong.stream()
+                .filter(document -> document.getMaPhong().equals(maphong))
+                .findFirst().orElse(null);
+        if (doc == null) {
+            return false;
+        }
+        this.phong.remove(doc);
+        return true;
+    }
+	
+	public void sapXepTangDanTheoCot() {
+		Collections.sort(this.mt, new Comparator<PhongMayTinh>() {
+
+			@Override
+			public int compare(PhongMayTinh sv1, PhongMayTinh sv2) {
+				if(sv1.getDayNha()>sv2.getDayNha()) {
+					return 1;
+				}else if(sv1.getDayNha()<sv2.getDayNha()) {
+					return -1;
+				}
+				return 0;
+			}
+		});
+	}
+}
+
+
+package LAB_TT6_BAI1;
+
+import java.util.Scanner;
+
+public class text {
+	public static void main(String[] args) {
+		System.out.println("Duong Phan Lanh");
+		System.out.println("1050080057");
+		System.out.println("MENU");
+		Scanner sc = new Scanner(System.in);
+		NguoiQuanLy_List  list  = new NguoiQuanLy_List();
+		
+		int luaChon=0;
+		do {
+			System.out.println("Nhap 1 de them phong\n");
+			System.out.println("Nhap 2 de xuat thong tin\n");
+			System.out.println("Nhap 3 de sap xep tang dan theo cot day nha\n");
+			System.out.println("Nhap 4 de sap xep giam dan theo cot dien\n");
+			System.out.println("Nhap 5 de sap xep tang dan theo so bong den \n");
+			System.out.println("Nhap 6 de cap nhap them thong tin theo maPhong\n");
+			System.out.println("Nhap 7 de xoa theo maPhong\n");
+			System.out.println("Nhap 8 de diem so phong\n");
+			System.out.println("Nhap 9 de tim kiem so phong 60");
+			luaChon=sc.nextInt();
+			sc.nextLine();
+			
+			if(luaChon==1) {
+				System.out.println("Nhan a de nhap thong tin PhongMayTinh\n");
+				System.out.println("Nhap b de nhap thong tin PhongLyThuyet\n");
+				System.out.println("Nhap b de nhap thong tin ThiNghiem\n");
+				String AA= sc.next();
+				switch (AA) {
+				case "a":
+					System.out.println("NHap Ma Phong\n");
+					String ma = sc.next();
+					System.out.println("Nhap day nha\n");
+					double dayNha = sc.nextDouble();
+					System.out.println("NHap dien tich\n");
+					double dienTich = sc.nextDouble();
+					System.out.println("Nhap soBogDen\n");
+					int soBongDen = sc.nextInt();
+					
+					System.out.println("Nhap so mayTinh\n ");
+					int soMayTinh = sc.nextInt();
+					
+					Phong mayTinh = new PhongMayTinh(ma, dayNha, dienTich, soBongDen, soMayTinh);
+					list.them(mayTinh);
+					System.out.println(mayTinh.toString());
+					sc.nextLine();
+					break;
+					
+				case "b":
+					System.out.println("NHap Ma Phong\n");
+					String ma1 = sc.next();
+					System.out.println("Nhap day nha\n");
+					double dayNha1 = sc.nextDouble();
+					System.out.println("NHap dien tich\n");
+					double dienTich1 = sc.nextDouble();
+					System.out.println("Nhap soBogDen\n");
+					int soBongDen1 = sc.nextInt();
+					
+					System.out.println("Nhap y Co_mayCHieu VA n KO_mayChieu");
+					String mayChieu= sc.next();
+					if(mayChieu=="y") {
+						System.out.println("Co may chieu");
+					}else if(mayChieu=="n") {
+						System.out.println("Ko co may chieu");
+					}else {
+						System.out.println("LOI");
+					}
+					
+					
+					
+					Phong lyThuyet = new PhongLyThuyet(ma1, dayNha1, dienTich1, soBongDen1, mayChieu);
+					System.out.println(lyThuyet.toString());
+					sc.nextLine();
+					break;
+					
+				case "c":
+					System.out.println("NHap Ma Phong\n");
+					String ma2 = sc.next();
+					System.out.println("Nhap day nha\n");
+					double dayNha2 = sc.nextDouble();
+					System.out.println("NHap dien tich\n");
+					double dienTich2 = sc.nextDouble();
+					System.out.println("Nhap soBogDen\n");
+					int soBongDen2 = sc.nextInt();
+					
+					System.out.println("Nhap so mayTinh\n ");
+					String thongTin=sc.nextLine();
+					System.out.println("NHap So Suc chua\n");
+					double sucChua = sc.nextDouble();
+					System.out.println("Nhap y CO_Bon_Rua VA n KO_Bon_Rua\n");
+					String bonRua = sc.next();
+					if(bonRua=="y") {
+						System.out.println("Co may chieu");
+					}else if(bonRua=="n") {
+						System.out.println("Ko co may chieu");
+					}else {
+						System.out.println("LOI");
+					}
+					
+					Phong thiNghiem = new PhongThiNghiem(ma2, dayNha2, dienTich2, soBongDen2, thongTin, sucChua, bonRua);
+					System.out.println(thiNghiem.toString());
+					
+					sc.nextLine();
+					break;
+
+				default:
+					break;
+				}
+			}else if(luaChon==2) {
+				System.out.println("Nhan o de xuat  tat ca thong tin \n");
+				System.out.println("Nhan a de xuat thong tin PhongMayTinh\n");
+				System.out.println("Nhap b de xuat thong tin PhongLyThuyet\n");
+				System.out.println("Nhap b de xuat thong tin ThiNghiem\n");
+				String BB = sc.next();
+				
+				switch (BB) {
+				case "o":
+					list.xuat();
+					list.TiemKiemPhongMayTinh();
+					list.TiemKiemPhongLyThuyet();
+					list.TiemKiemPhongThiNghiem();
+					break;
+				case "a":
+					list.TiemKiemPhongMayTinh();
+					break;
+				case "b":
+					list.TiemKiemPhongLyThuyet();
+					break;
+				case "c":
+					list.TiemKiemPhongThiNghiem();
+					break;
+
+				default:
+					break;
+				}
+			}else if(luaChon==7) {
+				System.out.print("Nhap ma so muon xoa ");
+                String MS = sc.nextLine();
+                System.out.println(list.xoa(MS) ? "Success" : "Fail");
+			}else if(luaChon==3) {
+				
+			}
+		
+			}while(luaChon!=0);
+
+	}	
+}
+	
